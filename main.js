@@ -251,7 +251,6 @@ async function resizeAndConvertToPng(directoryPath, outputParameters) {
     const outputPngPath = path.join(directoryPath, path.parse(file).name + '_temp.png');
 
     await sharp(inputImagePath)
-      .resize(...outputParameters)
       .flatten({ background: { r: 255, g: 255, b: 255 } })
       .png({ compressionLevel: 5, force: true, quality: 100 })
       .toFile(outputPngPath);
